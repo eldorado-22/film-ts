@@ -3,22 +3,22 @@ import "./style.scss";
 import {NavLink} from "react-router-dom";
 import logo from "./../../images/logo.svg"
 
-const Header = () => {
-    // const [scroll, setScroll] = useState(0)
-    //
-    // const toScroll = () => {
-    //     setScroll(window.scrollY)
-    // }
+const Header = ({getDark, dark}) => {
+    const [scroll, setScroll] = useState(0)
 
-    // useEffect(() => {
-    //     window.addEventListener('scroll', toScroll)
-    // }, [])
-    // style={{
-    //     background: scroll > 50 ? '#fff' : '',
-    //         backdropFilter: "blur(10px)"
-    // }}
+    const toScroll = () => {
+        setScroll(window.scrollY)
+    }
+    //
+    useEffect(() => {
+        window.addEventListener('scroll', toScroll)
+    }, [])
+
     return (
-        <header id="header" className="header">
+        <header style={{
+            background: scroll > 50 ? 'black' : '',
+            backdropFilter: "blur(10px)",
+        }} id="header" className="header">
                 <div className="header">
                     <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
                         <NavLink to="/" className=" ">
@@ -28,11 +28,11 @@ const Header = () => {
                             {/*</span>*/}
                         </NavLink>
                         <div className="flex md:order-2">
-                            <button type="button"
+                            <button
                                     className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Sign In
                             </button>
-                            <button type="button"
+                            <button onClick={() => getDark(dark)}
                                     className="mx-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-red-800 dark:hover:bg-red-700 dark:focus:ring-white">
                                 Dark
                             </button>

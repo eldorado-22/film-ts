@@ -17,6 +17,10 @@ input, button{
     border: none;
     outline: none;
 }
+img{
+    border-radius: 7px;
+    object-fit: cover;
+}
 #header{
     backdrop-filter: blur(5px);
     z-index: 99;
@@ -33,4 +37,17 @@ input, button{
     0%{
         transform: translateY(-600px);
     }
+}
+.popular {
+    display: flex;
+}
+
+
+
+#topRated, #popular, #nowPlaying {
+    padding: 70px 0;
+}
+
+h1 {
+    color: antiquewhite;
 }

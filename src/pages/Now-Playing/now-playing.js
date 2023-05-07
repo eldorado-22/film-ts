@@ -1,20 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import "./popular.scss";
-import {ApiKey} from "../../ApiKey/ApiKey";
 import axios from "axios";
+import {ApiKey} from "../../ApiKey/ApiKey";
 
-// https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
-const Popular = ({dark}) => {
-    const [popular, setPopular] = useState([])
-    const getPopular = async () => {
-        const res = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${ApiKey}&language=en-US&page=1`)
+const NowPlaying = ({dark}) => {
+
+    const [nowPlaying, setNowPlaying] = useState([])
+    const getNowPlaying = async () => {
+        const res = await  axios (`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=1`)
         const {data} = res
-        setPopular(data.results)
+        setNowPlaying(data.results)
     }
     useEffect(() => {
-        getPopular()
-    })
-    console.log(popular)
+        getNowPlaying()
+    },[])
+    console.log(nowPlaying)
 
     ///////////// SCROLL WINDOW ////////
     const [scroll, setScroll] = useState(0)
@@ -27,27 +26,27 @@ const Popular = ({dark}) => {
         window.addEventListener('scroll', toScroll)
     }, [])
 
-
     return (
-        <div id="popular" style={{
+        <div id="nowPlaying" style={{
             background: scroll > 50 ? '#b22222' : '',
             backdropFilter: "blur(10px)",
         }}>
             <div className="container">
                 <h1 style={{
                     color: scroll > 50  ? "#000" : ""
-                }}  className="text-center pt-7 font-medium text-3xl">Welcome To
+                }}  className="nowPlaying text-center pt-7 font-medium text-3xl">Welcome To
                     <span style={{
                         color: dark ? "aqua" : "red"
-                    }}> POPULAR</span></h1>
+                    }}> Now Playing</span>
+                </h1>
                 <div className="popular  basis-1/5 flex-wrap">
 
                     {
-                        popular.map(el => (
+                        nowPlaying.map(el => (
                             <div className="flex flex-col basis-1/4 px-5 py-8">
                                 <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
                                      alt="img"/>
-                                <div className="popular--text">
+                                <div className="nowPlaying--text">
                                     <h1 style={{
                                         color: scroll > 50  ? "#000" : ""
                                     }} className="text-center py-2 font-semibold text-xl">{el.title}</h1>
@@ -62,4 +61,4 @@ const Popular = ({dark}) => {
     );
 };
 
-export default Popular;
+export default NowPlaying;

@@ -1,47 +1,55 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container {
     width: 90%;
     margin: 0 auto;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-input, button{
+input, button {
     border: none;
     outline: none;
 }
-img{
+
+img {
     border-radius: 7px;
     object-fit: cover;
 }
-#header{
+
+#header {
     backdrop-filter: blur(5px);
     z-index: 99;
     background: rgba(0, 0, 0, 0.97);
 }
-.header{
+
+.header {
     position: fixed;
     width: 100%;
     backdrop-filter: blur(10px);
     animation: header ease-in-out 2s;
 
 }
+
 @keyframes header {
-    0%{
+    0% {
         transform: translateY(-600px);
     }
 }
+
 .popular {
     display: flex;
 }
 
+/*.topRated {*/
+/*    display: flex;*/
+/*}*/
 
 
 #topRated, #popular, #nowPlaying {

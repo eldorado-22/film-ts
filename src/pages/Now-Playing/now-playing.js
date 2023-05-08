@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {ApiKey} from "../../ApiKey/ApiKey";
+import {NavLink} from "react-router-dom";
 
 const NowPlaying = ({dark}) => {
 
     const [nowPlaying, setNowPlaying] = useState([])
     const getNowPlaying = async () => {
-        const res = await  axios (`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=1`)
+        const res = await  axios (`https://api.themoviedb.org/3/movie/now_playing?api_key=${ApiKey}&language=en-US&page=4`)
         const {data} = res
         setNowPlaying(data.results)
     }
     useEffect(() => {
         getNowPlaying()
     },[])
+
     console.log(nowPlaying)
 
     ///////////// SCROLL WINDOW ////////
@@ -44,8 +46,10 @@ const NowPlaying = ({dark}) => {
                     {
                         nowPlaying.map(el => (
                             <div className="flex flex-col basis-1/4 px-5 py-8">
-                                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
-                                     alt="img"/>
+                              <NavLink to={`/movies-info/${el.id}`}>
+                                  <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
+                                       alt="img"/>
+                              </NavLink>
                                 <div className="nowPlaying--text">
                                     <h1 style={{
                                         color: scroll > 50  ? "#000" : ""

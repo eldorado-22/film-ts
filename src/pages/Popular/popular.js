@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import "./popular.scss";
 import {ApiKey} from "../../ApiKey/ApiKey";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
 const Popular = ({dark}) => {
@@ -39,14 +40,18 @@ const Popular = ({dark}) => {
                 }}  className="text-center pt-7 font-medium text-3xl">Welcome To
                     <span style={{
                         color: dark ? "aqua" : "red"
-                    }}> POPULAR</span></h1>
+                    }}> POPULAR</span>
+                </h1>
                 <div className="popular  basis-1/5 flex-wrap">
 
                     {
                         popular.map(el => (
                             <div className="flex flex-col basis-1/4 px-5 py-8">
-                                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
-                                     alt="img"/>
+                                <NavLink to={`/movies-info/${el.id}`}>
+                                    <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
+                                         alt="img" />
+                                </NavLink>
+
                                 <div className="popular--text">
                                     <h1 style={{
                                         color: scroll > 50  ? "#000" : ""

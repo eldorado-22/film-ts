@@ -8,6 +8,7 @@ import Popular from "./pages/Popular/popular";
 import {useState} from "react";
 import TopRated from "./pages/Top-Rated/top-rated";
 import NowPlaying from "./pages/Now-Playing/now-playing";
+import DetailPage from "./pages/Detail-Pages/detail-page";
 
 function App() {
     const [dark, setDark] = useState(false)
@@ -25,6 +26,7 @@ function App() {
                 <Route path={"/popular"} element={<Popular/>}  getDark={getDark} dark={dark}/>
                 <Route path={"/top-rated"} element={<TopRated/>}  getDark={getDark} dark={dark}/>
                 <Route path={"/now-playing"} element={<NowPlaying/>}  getDark={getDark} dark={dark}/>
+                <Route path={"/movies-info/:movieId"} element={<DetailPage/>}  getDark={getDark} dark={dark}/>
             </Routes>
             <Footer/>
         </div>

@@ -2,18 +2,19 @@ import React, {useEffect, useState} from 'react';
 import "./style.scss";
 import axios from "axios";
 import {ApiKey} from "../../ApiKey/ApiKey";
+import {NavLink} from "react-router-dom";
 
 // https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1
 const TopRated = ({dark}) => {
     const [topRated, setTopRated] = useState([])
     const getTopRated = async () => {
-        const res = await  axios(` https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}&language=en-US&page=2`)
+        const res = await axios(` https://api.themoviedb.org/3/movie/top_rated?api_key=${ApiKey}&language=en-US&page=2`)
         const {data} = res
         setTopRated(data.results)
     }
     useEffect(() => {
         getTopRated()
-    },[])
+    }, [])
     console.log(topRated)
 
 
@@ -29,14 +30,13 @@ const TopRated = ({dark}) => {
     }, [])
 
 
-
     return (
         <div id="topRated" style={{
             background: scroll > 50 ? '#692305' : '',
             backdropFilter: "blur(10px)",
         }}>
             <div className="container">
-                <h1  className="text-center pt-7 font-medium text-3xl">Welcome To
+                <h1 className="text-center pt-7 font-medium text-3xl">Welcome To
                     <span className="" style={{
                         color: dark ? "aqua" : "red"
                     }}> Top Rated</span>
@@ -45,10 +45,14 @@ const TopRated = ({dark}) => {
                     {
                         topRated.map(el => (
                             <div className="flex basis-1/4 items-center flex-wrap px-5 py-8">
-                                <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`} width={600} alt="img"/>
+                                <NavLink to={`/movies-info/${el.id}`}>
+                                    <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${el.poster_path}`}
+                                         width={600} alt="img"/>
+                                </NavLink>
+
                                 <div className="topRated--text">
                                     <h1 style={{
-                                        color: scroll > 50  ? "#000" : ""
+                                        color: scroll > 50 ? "#000" : ""
                                     }} className="text-center text-2xl py-2 font-semibold ">{el.title}</h1>
                                 </div>
                             </div>

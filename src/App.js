@@ -9,6 +9,8 @@ import {useState} from "react";
 import TopRated from "./pages/Top-Rated/top-rated";
 import NowPlaying from "./pages/Now-Playing/now-playing";
 import DetailPage from "./pages/Detail-Pages/detail-page";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
     const [dark, setDark] = useState(false)

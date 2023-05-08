@@ -7,6 +7,8 @@ import {AiOutlineFullscreen} from "react-icons/ai";
 import {BsFillSuitHeartFill} from "react-icons/bs";
 import {FaListUl} from "react-icons/fa";
 import {FiStar} from "react-icons/fi";
+import DetailActors from "../Detail-Actors/detail-actors";
+import Trailers from "../../components/Trailers/trailers";
 
 
 const DetailPage = () => {
@@ -83,6 +85,8 @@ const DetailPage = () => {
                     </div>
                 </div>
             </div>
+            <DetailActors movieId={movieId}/>
+            <Trailers movieId={movieId}/>
         </>
     );
 };

@@ -1,0 +1,12 @@
+#trailers {
+  .trailers {
+    &--group {
+      &__videos{
+        &:hover{
+          filter: drop-shadow(1px 2px 12px red);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

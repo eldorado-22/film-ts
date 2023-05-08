@@ -3,6 +3,7 @@
   -webkit-box-shadow: 0 5px 100px 600px rgba(0, 0, 0, 0.78) inset;
   -moz-box-shadow: 0 5px 100px 600px rgba(0, 0, 0, 0.78) inset;
   box-shadow: 0 5px 10px 600px rgba(0, 0, 0, 0.78) inset;
+
   .details {
     &--images {
       position: relative;
@@ -50,8 +51,16 @@
           padding: 12px 15px;
           margin: 0 20px;
           font-size: 25px;
+          animation: social ease-in-out 4s;
         }
-        .list-two{
+
+        @keyframes social {
+          0% {
+            transform: scale(0.1);
+          }
+        }
+
+        .list-two {
           background: rgba(7, 22, 80, 0.94);
           width: 65px;
           height: 60px;
@@ -60,7 +69,15 @@
           margin: 10px 0;
           font-size: 25px;
           border: 3px solid red;
+          animation: social ease-in-out 3s;
         }
+
+        @keyframes social {
+          0% {
+            transform: scale(0.1);
+          }
+        }
+
 
         &--circle {
           background: rgba(7, 22, 80, 0.94);
@@ -70,7 +87,7 @@
           padding: -20px 0;
           margin: 10px 0;
 
-          h3{
+          h3 {
             text-align: center;
             padding: 20px 10px;
           }
@@ -90,7 +107,15 @@
           padding: 13px 17px;
           margin: 0 20px;
           font-size: 25px;
+          animation: social ease-in-out 6s;
         }
+
+        @keyframes social {
+          0% {
+            transform: scale(0.1);
+          }
+        }
+
 
         .star {
           background: rgba(7, 22, 80, 0.94);
@@ -100,7 +125,15 @@
           padding: 11px 14px;
           margin: 0 20px;
           font-size: 28px;
+          animation: social ease-in-out 8s;
         }
+
+        @keyframes social {
+          0% {
+            transform: scale(0.1);
+          }
+        }
+
       }
     }
 

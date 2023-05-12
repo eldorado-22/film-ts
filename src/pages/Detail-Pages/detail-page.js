@@ -13,6 +13,7 @@ import Trailers from "../../components/Trailers/trailers";
 
 const DetailPage = () => {
     const [details, setDetails] = useState({})
+    const [modal, setModal] = useState(false)
     const {movieId} = useParams()
     const getDetails = async (id, key) => {
         try {
@@ -39,8 +40,9 @@ const DetailPage = () => {
                 <div className="container">
                     <div className="details flex justify-between pt-20">
                         <div className="details--images w-[80%]">
-                            <img  src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${poster_path}`}
+                            <img src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${poster_path}`}
                                  alt="img" className=""/>
+
                             <div className="details--images__text">
                                 <h2 className="textTwo text-gray-400 text-xl text-center flex items-center">
                                     <AiOutlineFullscreen className="pr-1 text-3xl text-white"/> Расширить

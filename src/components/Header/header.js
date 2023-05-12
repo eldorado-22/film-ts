@@ -9,15 +9,16 @@ const Header = ({getDark, dark}) => {
     const toScroll = () => {
         setScroll(window.scrollY)
     }
-    //
+
     useEffect(() => {
         window.addEventListener('scroll', toScroll)
     }, [])
 
+
+
     return (
         <header style={{
-            background: scroll > 50 ? 'black' : '',
-            backdropFilter: "blur(10px)",
+            background: scroll > 50 ? '#150303' : '',
         }} id="header" className="header">
                 <div className="header">
                     <div className="max-w-screen-xl mx-auto p-4 flex justify-between items-center">

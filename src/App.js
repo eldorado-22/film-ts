@@ -11,6 +11,7 @@ import NowPlaying from "./pages/Now-Playing/now-playing";
 import DetailPage from "./pages/Detail-Pages/detail-page";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ActorsMovies from "./pages/Detail-Actors/Actors-Movies";
 
 function App() {
     const [dark, setDark] = useState(false)
@@ -19,7 +20,7 @@ function App() {
     }
     return (
         <div style={{
-            background: dark ? '#0f61b6' : 'black',
+            background: dark ? '#623503' : 'black',
             color: dark ? 'black' : 'blue'
         }}>
             <Header  getDark={getDark} dark={!dark}/>
@@ -29,6 +30,7 @@ function App() {
                 <Route path={"/top-rated"} element={<TopRated/>}  getDark={getDark} dark={dark}/>
                 <Route path={"/now-playing"} element={<NowPlaying/>}  getDark={getDark} dark={dark}/>
                 <Route path={"/movies-info/:movieId"} element={<DetailPage/>}  getDark={getDark} dark={dark}/>
+                <Route path={"/actor-info/:actorId"} element={<ActorsMovies/>} getDark={getDark} dark={dark}/>
             </Routes>
             <Footer/>
         </div>

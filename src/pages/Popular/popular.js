@@ -5,7 +5,7 @@ import axios from "axios";
 import {NavLink} from "react-router-dom";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
-const Popular = ({dark}) => {
+const Popular = ({dark, el}) => {
     const [popular, setPopular] = useState([])
     const getPopular = async () => {
         const res = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${ApiKey}&language=en-US&page=1`)

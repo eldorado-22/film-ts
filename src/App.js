@@ -11,18 +11,29 @@ import NowPlaying from "./pages/Now-Playing/now-playing";
 import DetailPage from "./pages/Detail-Pages/detail-page";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ActorsMovies from "./pages/Detail-Actors/Actors-Movies";
+import ActorsMovies from "./pages/Detail-Actors/Actors-Info";
 
 function App() {
     const [dark, setDark] = useState(false)
     function getDark() {
         setDark(!dark)
     }
+
+    // let  progress = document.getElementById('progressbar');
+    // let totalHeight = document.body.scrollHeight - window.innerHeight;
+    // window.onscroll = function (){
+    //     let progressHeight = (window.pageYOffset /
+    //     totalHeight) * 100;
+    //     progress.style.height = progressHeight + "%"
+    // }
+
     return (
         <div style={{
             background: dark ? '#623503' : 'black',
             color: dark ? 'black' : 'blue'
         }}>
+            <div id="progressbar"></div>
+            <div id="scrollPath"></div>
             <Header  getDark={getDark} dark={!dark}/>
             <Routes getDark={getDark} dark={!dark}>
                 <Route path={"/"} element={<Index/>}  getDark={getDark} dark={dark}/>

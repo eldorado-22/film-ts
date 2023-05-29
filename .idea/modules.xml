@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/film-ts.iml" filepath="$PROJECT_DIR$/.idea/film-ts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../js-27/toolkit-shop/.idea/toolkit-shop.iml" filepath="$PROJECT_DIR$/../../js-27/toolkit-shop/.idea/toolkit-shop.iml" />
     </modules>
   </component>
 </project>

@@ -1,7 +1,7 @@
 #home {
-  background: url("./../../images/home.png") no-repeat center/cover;
-  min-height: 100vh;
-  object-fit: cover;
+  //background: url("./../../images/home.png") no-repeat center/cover;
+  //min-height: 100vh;
+  //object-fit: cover;
 
   &:before {
     content: "";
@@ -28,20 +28,35 @@
   }
 
   .home {
-    .btn-group {
-      button {
-        color: white;
-        font-size: 23px;
-        //background: #F1433A;
-        //box-shadow: 0 4px 39px rgba(231, 87, 87, 0.25);
-      }
+    &--images{
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      position: relative;
+      //top: 90px;
+    }
+    &--text{
+      position: absolute;
+      top: -100px;
+      bottom: -10px;
+      &__btn-group {
 
-      animation: btn ease-in 3s;
-      @keyframes btn {
-        0% {
-          transform: translateX(-600px);
+        button {
+          color: white;
+          font-size: 23px;
+          //background: #F1433A;
+          //box-shadow: 0 4px 39px rgba(231, 87, 87, 0.25);
+        }
+
+        animation: btn ease-in 3s;
+        @keyframes btn {
+          0% {
+            transform: translateX(-600px);
+          }
         }
       }
+
     }
   }
 }

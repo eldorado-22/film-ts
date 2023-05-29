@@ -4,7 +4,7 @@ import {ApiKey} from "../../ApiKey/ApiKey";
 import axios from "axios";
 import {Link} from "react-router-dom";
 import user from "./../../images/user.png"
-import {IoVideocam} from "react-icons/io5";
+import {IoPersonSharp} from "react-icons/io5";
 
 
 const DetailActors = ({movieId}) => {
@@ -20,7 +20,7 @@ const DetailActors = ({movieId}) => {
         getActors(ApiKey, movieId)
     }, [])
 
-    // console.log(actors)
+    console.log(actors)
 
 
     // const {profile_path, character, name} = actors
@@ -33,7 +33,6 @@ const DetailActors = ({movieId}) => {
                     {
                         actors.map(el => (
                             <div key={el.id} className="actors--img py-10">
-
                                 <div className="actors--img__group">
                                     <Link to={`/actor-info/${el.id}`}>
                                         {!el.profile_path ? <img src={user} alt="img" width="210px"/>
@@ -43,7 +42,7 @@ const DetailActors = ({movieId}) => {
                                             />
                                         }
                                     </Link>
-                                    <IoVideocam className="text-center icons"/>
+                                    <IoPersonSharp className="text-center icons"/>
                                     <div className="actors--img__group--block"></div>
                                 </div>
                                 <h6 className="py-4 px-3 text-white text-2xl">{el.name}</h6>

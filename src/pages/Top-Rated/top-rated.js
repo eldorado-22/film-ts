@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import "./style.scss";
 import axios from "axios";
 import {ApiKey} from "../../ApiKey/ApiKey";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {MdSavedSearch} from "react-icons/md";
 
 // https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1
 const TopRated = ({dark}) => {
@@ -16,6 +17,13 @@ const TopRated = ({dark}) => {
         getTopRated()
     }, [])
     console.log(topRated)
+    /////////// SEARCH //////////////////////
+    const [value, setValue] = useState("")
+    const navigate = useNavigate()
+
+    function goToSearch(){
+        navigate(`/search/${value}`)
+    }
 
 
     ///////////// SCROLL WINDOW ////////
@@ -41,6 +49,13 @@ const TopRated = ({dark}) => {
                         color: dark ? "aqua" : "red"
                     }}> Top Rated</span>
                 </h1>
+                <div className="home--text__btn-group flex pl-10 py-6">
+                    <input  onKeyDown={(e) => {if (e.key === 'Enter'){goToSearch()}}}
+                            onChange={(e) => setValue(e.target.value)}
+                            type="text" className="w-[100%] rounded py-1.5 text-gray-500 p-4"
+                            placeholder="Search Movies"/>
+                    <MdSavedSearch className="text-4xl text-red-700 relative top-0 right-10"/>
+                </div>
                 <div className="topRated flex justify-center basis-1/5 flex-wrap items-center   ">
                     {
                         topRated.map(el => (

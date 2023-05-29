@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {ApiKey} from "../../ApiKey/ApiKey";
+import Hero from "../Hero/hero";
+import Popular from "../../pages/Popular/popular";
 // import Popular from "../../pages/Popular/popular";
 // import Hero from "../Hero/hero";
 
@@ -24,14 +26,16 @@ const Search = () => {
         getSearch()
     },[])
 
+
+
     return (
         <div>
             <div className="container">
                 <div className="search">
                     {
-                        // search.map(el => (
-                            // <Hero el={el}/>
-                        // ))
+                        search.map(el => (
+                            <Popular el={el}/>
+                        ))
                     }
                 </div>
             </div>

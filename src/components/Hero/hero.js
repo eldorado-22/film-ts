@@ -1,16 +1,17 @@
 import React, {useState} from 'react';
 import "./style.scss";
 import home from "./../../images/home.png"
-import {MdSavedSearch} from "react-icons/md";
-import {useNavigate} from "react-router-dom";
+// import {MdSavedSearch} from "react-icons/md";
+// import {useNavigate} from "react-router-dom";
 
 const Home = ({el }) => {
-    const [value, setValue] = useState("")
-    const navigate = useNavigate()
+    // const [value, setValue] = useState("")
+    // const navigate = useNavigate()
 
-    function goToSearch(){
-        navigate(`/search/${value}`)
-    }
+    // function goToSearch(){
+    //     navigate(`/search/${value}`)
+    // }
+
 
     return (
         <section id="home" style={
@@ -21,14 +22,15 @@ const Home = ({el }) => {
             <div className="container">
                 <div className="home">
                     <div className="home--text__btn-group flex pl-10 py-20">
-                        {/*<button className="px-4 py-3 rounded-xl text-2xl bg-red-900 shadow-xl shadow-orange-500/50">Get Started</button>*/}
-                        {/*<button className="mx-5 px-4 rounded-xl py-13 text-2xl bg-red-800 shadow-xl shadow-orange-500/50">Let's Go</button>*/}
-                        <input  onKeyDown={(e) => {if (e.key === 'Enter'){goToSearch()}}}
-                                onChange={(e) => setValue(e.target.value)}
-                                type="text" className="w-[100%] rounded py-1.5 text-gray-500 p-4"
-                               placeholder="Search Movies"/>
-                        <MdSavedSearch className="text-4xl text-red-700 relative top-0 right-10"/>
+                        {/*<input  onKeyDown={(e) => {if (e.key === 'Enter'){goToSearch()}}}*/}
+                        {/*        onChange={(e) => setValue(e.target.value)}*/}
+                        {/*        type="text" className="w-[100%] rounded py-1.5 text-gray-500 p-4"*/}
+                        {/*       placeholder="Search Movies"/>*/}
+                        {/*<MdSavedSearch onClick={() => goToSearch()} className="text-4xl text-red-700 relative top-0 right-10"/>*/}
                     </div>
+                    <a href="https://store-toolkit.vercel.app/" target="_blank">
+                        <button className="mx-5 px-10 rounded-xl py-2 text-2xl text-white bg-red-800 shadow-xl shadow-orange-500/50">Go To SHOP</button>
+                    </a>
                     <div className="home--images py-10  gap-6">
                         <img src={home} alt="img"/>
                         <img

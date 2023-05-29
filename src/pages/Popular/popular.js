@@ -1,12 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import "./popular.scss";
 import {ApiKey} from "../../ApiKey/ApiKey";
 import axios from "axios";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
+import {MdSavedSearch} from "react-icons/md";
+// import LanguageContext from "./../../Context";
 
 // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
+
 const Popular = ({dark, el}) => {
     const [popular, setPopular] = useState([])
+    // const {language} = useContext(LanguageContext)
     const getPopular = async () => {
         const res = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${ApiKey}&language=en-US&page=1`)
         const {data} = res
@@ -14,8 +18,17 @@ const Popular = ({dark, el}) => {
     }
     useEffect(() => {
         getPopular()
-    })
+    }, [])
     console.log(popular)
+
+
+    ////////////// SEARCH //////////////////////
+    const [value, setValue] = useState("")
+    const navigate = useNavigate()
+
+    function goToSearch(){
+        navigate(`/search/${value}`)
+    }
 
     ///////////// SCROLL WINDOW ////////
     const [scroll, setScroll] = useState(0)
@@ -42,6 +55,13 @@ const Popular = ({dark, el}) => {
                         color: dark ? "aqua" : "red"
                     }}> POPULAR</span>
                 </h1>
+                <div className="home--text__btn-group flex pl-10 py-6">
+                    <input onKeyDown={(e) => {if (e.key === 'Enter'){goToSearch()}}}
+                           onChange={(e) => setValue(e.target.value)}
+                            type="text" className="w-[100%] rounded py-1.5 text-gray-500 p-4"
+                            placeholder="Search Movies"/>
+                    <MdSavedSearch onClick={() => goToSearch()} className="text-4xl text-red-700 relative top-0 right-10"/>
+                </div>
                 <div className="popular  basis-1/5 flex-wrap">
 
                     {
